@@ -663,27 +663,18 @@ bool operator==(const vector<T> &a, const vector<T> &b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return memcmp(a.data(), b.data(), sizeof(T) * a.size()) == 0;
 }
 
 template<typename T>
 bool operator<(const vector<T> &a, const vector<T> &b) {
-    size_t i = 0;
-    while (i < a.size() && i < b.size()) {
-        if (a[i] < b[i]) {
-            return true;
+    size_t len = std::min(a.size(), b.size());
+    for (size_t i = 0; i < len; ++i) {
+        if (a[i] != b[i]) {
+            return a[i] < b[i];
         }
-        if (a[i] > b[i]) {
-            return false;
-        }
-        i++;
     }
-    return i == a.size() && i < b.size();
+    return a.size() < b.size();
 }
 
 template<typename T>
