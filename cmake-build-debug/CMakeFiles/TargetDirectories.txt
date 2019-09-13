@@ -1,3 +1,0 @@
-/home/donaldo/CLionProjects/OptimizedVector/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/donaldo/CLionProjects/OptimizedVector/cmake-build-debug/CMakeFiles/vector_testing.dir
-/home/donaldo/CLionProjects/OptimizedVector/cmake-build-debug/CMakeFiles/edit_cache.dir
