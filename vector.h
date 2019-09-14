@@ -22,12 +22,7 @@ void assign_fs(void * data, size_t x, size_t y, size_t z) {
 
 template <typename T>
 void try_alloc(void *& data, size_t & x) {
-    try {
-        data = malloc(sizeof(size_t) * 3 + sizeof(T) * x);
-    } catch (...) {
-        free(data);
-        throw;
-    }
+    data = malloc(sizeof(size_t) * 3 + sizeof(T) * x);
 }
 
 template <typename T>
@@ -242,6 +237,7 @@ void vector<T>::unique() {
             T *d = reinterpret_cast<T *>(data_(big));
             copy_construct_all(nd, d, sz);
         } catch(...) {
+            free(new_data);
             throw;
         }
 
